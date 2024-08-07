@@ -65,25 +65,59 @@
 // }
 
 ////////////////////////////////////////
+// ejercicio 1 martes 06
+// let free = false;
+// const validarHora = (time) => {
+//   let persona = prompt("cuantos años tienes?");
+//   if (persona > 18) {
+//     if (time >= 2 && time < 7 && free == false) {
+//       alert("puedes pasar gratis");
+//       free = true;
+//     } else {
+//       alert(`son las ${time}:00Hs puedes pasar pero debes pagar tu entrada`);
+//     }
+//   } else {
+//     alert("no puedes pasar por que eres menor de edad ");
+//   }
+// };
 
-let free = false;
-const validarHora = (time) => {
-  let persona = prompt("cuantos años tienes?");
-  if (persona > 18) {
-    if (time >= 2 && time < 7 && free == false) {
-      alert("puedes pasar gratis");
-      free = true;
-    } else {
-      alert(`son las ${time}:00Hs puedes pasar pero debes pagar tu entrada`);
-    }
-  } else {
-    alert("no puedes pasar por que eres menor de edad ");
+// validarHora(22);
+// validarHora(24);
+// validarHora(2);
+// validarHora(19);
+// validarHora(21);
+// validarHora(5);
+
+// ejercicio 2 martes 06
+
+let cantidad = prompt("cuantos alumnos son?");
+let alumnosTotales = [];
+
+for (i = 0; i < cantidad; i++) {
+  alumnosTotales[i] = [prompt("nombre del alumno " + (i + 1)), 0];
+}
+
+const tomarAsistencia = (nombre, p) => {
+  let presencia = prompt(nombre);
+  if (presencia == "p" || presencia == "P") {
+    alumnosTotales[p][1]++;
   }
 };
 
-validarHora(22);
-validarHora(24);
-validarHora(2);
-validarHora(19);
-validarHora(21);
-validarHora(5);
+for (i = 0; i < 30; i++) {
+  for (alumno in alumnosTotales) {
+    tomarAsistencia(alumnosTotales[alumno][0], alumno);
+  }
+}
+
+for (alumno in alumnosTotales) {
+  let res = `${alumnosTotales[alumno][0]}: <br>
+  _______Presentes: <b>${alumnosTotales[alumno][1]}</b> <br>
+  _______Ausencias:<b>${30 - alumnosTotales[alumno][1]}</b>`;
+  if (30 - alumnosTotales[alumno][1] > 18) {
+    res += "<b> REPROBADO POR INASISTENSIAS</b><br><br>";
+  } else {
+    res += "<br><br>";
+  }
+  document.write(res);
+}
