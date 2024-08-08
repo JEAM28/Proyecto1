@@ -90,34 +90,93 @@
 
 // ejercicio 2 martes 06
 
-let cantidad = prompt("cuantos alumnos son?");
-let alumnosTotales = [];
+// let cantidad = prompt("cuantos alumnos son?");
+// let alumnosTotales = [];
 
-for (i = 0; i < cantidad; i++) {
-  alumnosTotales[i] = [prompt("nombre del alumno " + (i + 1)), 0];
+// for (i = 0; i < cantidad; i++) {
+//   alumnosTotales[i] = [prompt("nombre del alumno " + (i + 1)), 0];
+// }
+
+// const tomarAsistencia = (nombre, p) => {
+//   let presencia = prompt(nombre);
+//   if (presencia == "p" || presencia == "P") {
+//     alumnosTotales[p][1]++;
+//   }
+// };
+
+// for (i = 0; i < 30; i++) {
+//   for (alumno in alumnosTotales) {
+//     tomarAsistencia(alumnosTotales[alumno][0], alumno);
+//   }
+// }
+
+// for (alumno in alumnosTotales) {
+//   let res = `${alumnosTotales[alumno][0]}: <br>
+//   _______Presentes: <b>${alumnosTotales[alumno][1]}</b> <br>
+//   _______Ausencias:<b>${30 - alumnosTotales[alumno][1]}</b>`;
+//   if (30 - alumnosTotales[alumno][1] > 18) {
+//     res += "<b> REPROBADO POR INASISTENSIAS</b><br><br>";
+//   } else {
+//     res += "<br><br>";
+//   }
+//   document.write(res);
+// }
+
+////////////////////////////////////
+// EJERCICIO 1 JUEVES 08
+
+class celular {
+  constructor(color, peso, rdp, rdc, mRam) {
+    (this.color = color),
+      (this.peso = peso),
+      (this.rdp = rdp),
+      (this.rdc = rdc),
+      (this.mRam = mRam),
+      (this.encendido = false);
+  }
+  encender() {
+    if (this.encendido == false) {
+      alert("el celular esta prendido");
+      this.encendido = true;
+    } else {
+      alert("celular apagado");
+    }
+  }
+
+  reiniciar() {
+    if (this.encendido == true) {
+      alert("deseas reiniciar el celular?");
+    } else {
+      alert("celular apagado");
+    }
+  }
+  tomarFoto() {
+    alert(`foto tomada en resolucion de: ${this.rdc} `);
+  }
+  grabarVideo() {
+    alert(`estas grabando un video en ${this.rdc}`);
+  }
+
+  mostrarInfo() {
+    return `
+    Color: <b>${this.color}</b> <br>
+    Peso: <b>${this.peso}</b> <br>
+    Resolucion de camara: <b>${this.rdc}</b> <br>
+    tamaño: <b>${this.rdp}</b> <br>
+    Memoria Ram: <b>${this.mRam}</b> <br>`;
+  }
 }
 
-const tomarAsistencia = (nombre, p) => {
-  let presencia = prompt(nombre);
-  if (presencia == "p" || presencia == "P") {
-    alumnosTotales[p][1]++;
-  }
-};
-
-for (i = 0; i < 30; i++) {
-  for (alumno in alumnosTotales) {
-    tomarAsistencia(alumnosTotales[alumno][0], alumno);
-  }
-}
-
-for (alumno in alumnosTotales) {
-  let res = `${alumnosTotales[alumno][0]}: <br>
-  _______Presentes: <b>${alumnosTotales[alumno][1]}</b> <br>
-  _______Ausencias:<b>${30 - alumnosTotales[alumno][1]}</b>`;
-  if (30 - alumnosTotales[alumno][1] > 18) {
-    res += "<b> REPROBADO POR INASISTENSIAS</b><br><br>";
-  } else {
-    res += "<br><br>";
-  }
-  document.write(res);
-}
+celular1 = new celular("azul", "80g", "6'", "1080p", "4gb");
+// celular1.encender();
+// celular1.reiniciar();
+// celular1.tomarFoto();
+// celular1.grabarVideo();
+// document.write(celular1);
+celular2 = new celular("rojo", "80g", "5'", "1080p", "4gb");
+celular3 = new celular("negro", "80g", "6.5'", "1080p", "4gb");
+document.write(
+  `sansumg <br>${celular1.mostrarInfo()}<br>
+  iphone <br>${celular2.mostrarInfo()}<br>
+  xiaomi<br>${celular3.mostrarInfo()}<br>`
+);
