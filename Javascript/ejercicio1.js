@@ -125,58 +125,120 @@
 ////////////////////////////////////
 // EJERCICIO 1 JUEVES 08
 
-class celular {
-  constructor(color, peso, rdp, rdc, mRam) {
-    (this.color = color),
-      (this.peso = peso),
-      (this.rdp = rdp),
-      (this.rdc = rdc),
-      (this.mRam = mRam),
-      (this.encendido = false);
-  }
-  encender() {
-    if (this.encendido == false) {
-      alert("el celular esta prendido");
-      this.encendido = true;
-    } else {
-      alert("celular apagado");
-    }
+// class celular {
+//   constructor(color, peso, rdp, rdc, mRam) {
+//     (this.color = color),
+//       (this.peso = peso),
+//       (this.rdp = rdp),
+//       (this.rdc = rdc),
+//       (this.mRam = mRam),
+//       (this.encendido = false);
+//   }
+//   encender() {
+//     if (this.encendido == false) {
+//       alert("el celular esta prendido");
+//       this.encendido = true;
+//     } else {
+//       alert("celular apagado");
+//     }
+//   }
+
+//   reiniciar() {
+//     if (this.encendido == true) {
+//       alert("deseas reiniciar el celular?");
+//     } else {
+//       alert("celular apagado");
+//     }
+//   }
+//   tomarFoto() {
+//     alert(`foto tomada en resolucion de: ${this.rdc} `);
+//   }
+//   grabarVideo() {
+//     alert(`estas grabando un video en ${this.rdc}`);
+//   }
+
+//   mostrarInfo() {
+//     return `
+//     Color: <b>${this.color}</b> <br>
+//     Peso: <b>${this.peso}</b> <br>
+//     Resolucion de camara: <b>${this.rdc}</b> <br>
+//     tamaño: <b>${this.rdp}</b> <br>
+//     Memoria Ram: <b>${this.mRam}</b> <br>`;
+//   }
+// }
+
+// celular1 = new celular("azul", "80g", "6'", "1080p", "4gb");
+// celular2 = new celular("rojo", "80g", "5'", "1080p", "4gb");
+// celular3 = new celular("negro", "80g", "6.5'", "1080p", "4gb");
+// document.write(
+//   `samsung <br>${celular1.mostrarInfo()}<br>
+//   iphone <br>${celular2.mostrarInfo()}<br>
+//   xiaomi<br>${celular3.mostrarInfo()}<br>`
+// );
+
+//EJERCICIO 2
+
+class App {
+  constructor(descargas, puntuacion, peso) {
+    this.descargas = descargas;
+    this.puntuacion = puntuacion;
+    this.peso = peso;
+    this.iniciada = false;
+    this.instalada = false;
   }
 
-  reiniciar() {
-    if (this.encendido == true) {
-      alert("deseas reiniciar el celular?");
-    } else {
-      alert("celular apagado");
+  abrir() {
+    if (this.iniciada == false && this.instalada == true) {
+      this.iniciada = true;
+      alert("app abierta");
     }
   }
-  tomarFoto() {
-    alert(`foto tomada en resolucion de: ${this.rdc} `);
+  cerrar() {
+    if (this.iniciada == true && this.instalada == true) {
+      this.iniciada = false;
+      alert("la app se a cerrado");
+    }
   }
-  grabarVideo() {
-    alert(`estas grabando un video en ${this.rdc}`);
+  instalar() {
+    if (this.instalada == false) {
+      this.instalada = true;
+      alert("la app se ha instalado correctamente");
+    }
   }
-
-  mostrarInfo() {
+  desinstalar() {
+    if (this.instalada == true) {
+      this.instalada = false;
+      alert("la app se ha desinstalado correctamente");
+    }
+  }
+  appInfo() {
     return `
-    Color: <b>${this.color}</b> <br>
-    Peso: <b>${this.peso}</b> <br>
-    Resolucion de camara: <b>${this.rdc}</b> <br>
-    tamaño: <b>${this.rdp}</b> <br>
-    Memoria Ram: <b>${this.mRam}</b> <br>`;
+    descargas:<b>${this.descargas}</b><br>
+    puntuacion:<b>${this.puntuacion}</b><br>
+    peso:<b>${this.peso}</b><br>`;
   }
 }
 
-celular1 = new celular("azul", "80g", "6'", "1080p", "4gb");
-// celular1.encender();
-// celular1.reiniciar();
-// celular1.tomarFoto();
-// celular1.grabarVideo();
-// document.write(celular1);
-celular2 = new celular("rojo", "80g", "5'", "1080p", "4gb");
-celular3 = new celular("negro", "80g", "6.5'", "1080p", "4gb");
+app1 = new App("10.000", "***", "180mb");
+app2 = new App("15.000", "****", "170mb");
+app3 = new App("112.000", "*****", "50mb");
+app4 = new App("11.000", "****", "132mb");
+app5 = new App("18.000", "****", "112mb");
+app6 = new App("30.000", "****", "110mb");
+app7 = new App("45.000", "****", "190mb");
+
+// app1.instalar();
+// app1.abrir();
+// app1.cerrar();
+// app1.desinstalar();
+
 document.write(
-  `sansumg <br>${celular1.mostrarInfo()}<br>
-  iphone <br>${celular2.mostrarInfo()}<br>
-  xiaomi<br>${celular3.mostrarInfo()}<br>`
+  `FACEBOOK <br> ${app1.appInfo()}<br>
+  MESSENGE <br> ${app2.appInfo()}<br>
+  WHATSAPP <br> ${app3.appInfo()}<br>
+  YOUTUBE <br> ${app4.appInfo()}<br>
+  NETFLIX <br> ${app5.appInfo()}<br>
+  INSTAGRAM <br> ${app6.appInfo()}<br>
+  TIKTOK <br> ${app7.appInfo()}<br>
+  `
 );
