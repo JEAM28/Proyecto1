@@ -178,67 +178,141 @@
 
 //EJERCICIO 2
 
-class App {
-  constructor(descargas, puntuacion, peso) {
-    this.descargas = descargas;
-    this.puntuacion = puntuacion;
-    this.peso = peso;
-    this.iniciada = false;
-    this.instalada = false;
-  }
+// class App {
+//   constructor(descargas, puntuacion, peso) {
+//     this.descargas = descargas;
+//     this.puntuacion = puntuacion;
+//     this.peso = peso;
+//     this.iniciada = false;
+//     this.instalada = false;
+//   }
 
-  abrir() {
-    if (this.iniciada == false && this.instalada == true) {
-      this.iniciada = true;
-      alert("app abierta");
-    }
+//   abrir() {
+//     if (this.iniciada == false && this.instalada == true) {
+//       this.iniciada = true;
+//       alert("app abierta");
+//     }
+//   }
+//   cerrar() {
+//     if (this.iniciada == true && this.instalada == true) {
+//       this.iniciada = false;
+//       alert("la app se a cerrado");
+//     }
+//   }
+//   instalar() {
+//     if (this.instalada == false) {
+//       this.instalada = true;
+//       alert("la app se ha instalado correctamente");
+//     }
+//   }
+//   desinstalar() {
+//     if (this.instalada == true) {
+//       this.instalada = false;
+//       alert("la app se ha desinstalado correctamente");
+//     }
+//   }
+//   appInfo() {
+//     return `
+//     descargas:<b>${this.descargas}</b><br>
+//     puntuacion:<b>${this.puntuacion}</b><br>
+//     peso:<b>${this.peso}</b><br>`;
+//   }
+// }
+
+// app1 = new App("10.000", "***", "180mb");
+// app2 = new App("15.000", "****", "170mb");
+// app3 = new App("112.000", "*****", "50mb");
+// app4 = new App("11.000", "****", "132mb");
+// app5 = new App("18.000", "****", "112mb");
+// app6 = new App("30.000", "****", "110mb");
+// app7 = new App("45.000", "****", "190mb");
+
+// // app1.instalar();
+// // app1.abrir();
+// // app1.cerrar();
+// // app1.desinstalar();
+
+// document.write(
+//   `FACEBOOK <br> ${app1.appInfo()}<br>
+//   MESSENGE <br> ${app2.appInfo()}<br>
+//   WHATSAPP <br> ${app3.appInfo()}<br>
+//   YOUTUBE <br> ${app4.appInfo()}<br>
+//   NETFLIX <br> ${app5.appInfo()}<br>
+//   INSTAGRAM <br> ${app6.appInfo()}<br>
+//   TIKTOK <br> ${app7.appInfo()}<br>
+//   `
+// );
+
+//////////////////////////////////
+//EJERCICIO 1 VIERNES 09 (CALCULADORA)
+
+class Calculadora {
+  sumar(num1, num2) {
+    return +num1 + +num2;
   }
-  cerrar() {
-    if (this.iniciada == true && this.instalada == true) {
-      this.iniciada = false;
-      alert("la app se a cerrado");
-    }
+  restar(num1, num2) {
+    return +num1 - +num2;
   }
-  instalar() {
-    if (this.instalada == false) {
-      this.instalada = true;
-      alert("la app se ha instalado correctamente");
-    }
+  multiplicar(num1, num2) {
+    return +num1 * +num2;
   }
-  desinstalar() {
-    if (this.instalada == true) {
-      this.instalada = false;
-      alert("la app se ha desinstalado correctamente");
-    }
+  dividir(num1, num2) {
+    return +num1 / +num2;
   }
-  appInfo() {
-    return `
-    descargas:<b>${this.descargas}</b><br>
-    puntuacion:<b>${this.puntuacion}</b><br>
-    peso:<b>${this.peso}</b><br>`;
+  potenciar(num, exponente) {
+    return num ** +exponente;
+  }
+  raizCuadrada(num) {
+    return Math.sqrt(num);
+  }
+  raizCubica(num) {
+    return Math.cbrt(num);
   }
 }
 
-app1 = new App("10.000", "***", "180mb");
-app2 = new App("15.000", "****", "170mb");
-app3 = new App("112.000", "*****", "50mb");
-app4 = new App("11.000", "****", "132mb");
-app5 = new App("18.000", "****", "112mb");
-app6 = new App("30.000", "****", "110mb");
-app7 = new App("45.000", "****", "190mb");
+const calculadora = new Calculadora();
+let operacion = prompt(`
+  que operacion deseas realizar?
+  1: suma, 2: resta, 3: multiplicacion, 4: division, 5: potenciacion: 6: raiz cuadrada, 7: raiz cubica`);
 
-// app1.instalar();
-// app1.abrir();
-// app1.cerrar();
-// app1.desinstalar();
-
-document.write(
-  `FACEBOOK <br> ${app1.appInfo()}<br>
-  MESSENGE <br> ${app2.appInfo()}<br>
-  WHATSAPP <br> ${app3.appInfo()}<br>
-  YOUTUBE <br> ${app4.appInfo()}<br>
-  NETFLIX <br> ${app5.appInfo()}<br>
-  INSTAGRAM <br> ${app6.appInfo()}<br>
-  TIKTOK <br> ${app7.appInfo()}<br>
-  `
-);
+if (operacion == 1) {
+  let numero1 = prompt("ingresa tu primer numero para sumar");
+  let numero2 = prompt("ingresa tu segundo numero para sumar");
+  resultado = calculadora.sumar(numero1, numero2);
+  alert(`la suma es ${resultado}`);
+}
+if (operacion == 2) {
+  let numero1 = prompt("ingresa tu primer numero para restar");
+  let numero2 = prompt("ingresa tu segundo numero para restar");
+  resultado = calculadora.restar(numero1, numero2);
+  alert(`la resta es ${resultado}`);
+}
+if (operacion == 3) {
+  let numero1 = prompt("ingresa tu primer numero para multiplicar");
+  let numero2 = prompt("ingresa tu segundo numero para multiplicar");
+  resultado = calculadora.multiplicar(numero1, numero2);
+  alert(`la multiplicacion es ${resultado}`);
+}
+if (operacion == 4) {
+  let numero1 = prompt("ingresa tu primer numero para dividir");
+  let numero2 = prompt("ingresa tu segundo numero para dividir");
+  resultado = calculadora.dividir(numero1, numero2);
+  alert(`la division es ${resultado}`);
+}
+if (operacion == 5) {
+  let numero1 = prompt("ingresa el numero para potenciar");
+  let exponente = prompt("ingresa el exponente");
+  resultado = calculadora.potenciar(numero1, exponente);
+  alert(`la potenciacion es ${resultado}`);
+}
+if (operacion == 6) {
+  let numero1 = prompt("ingresa el numero para obtener su raiz cuadrada");
+  resultado = calculadora.raizCuadrada(numero1);
+  alert(`la la raiz cuadrada es7
+  es ${resultado}`);
+}
+if (operacion == 7) {
+  let numero1 = prompt("ingresa el numero para obtener su raiz cubica");
+  resultado = calculadora.raizCubica(numero1);
+  alert(`la raiz cubica es ${resultado}`);
+}
