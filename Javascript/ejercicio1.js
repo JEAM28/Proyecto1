@@ -315,4 +315,6 @@ if (operacion == 7) {
   let numero1 = prompt("ingresa el numero para obtener su raiz cubica");
   resultado = calculadora.raizCubica(numero1);
   alert(`la raiz cubica es ${resultado}`);
+} else {
+  alert("no se encuantra la operacion deseada");
 }
