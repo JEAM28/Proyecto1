@@ -246,75 +246,148 @@
 //////////////////////////////////
 //EJERCICIO 1 VIERNES 09 (CALCULADORA)
 
-class Calculadora {
-  sumar(num1, num2) {
-    return +num1 + +num2;
-  }
-  restar(num1, num2) {
-    return +num1 - +num2;
-  }
-  multiplicar(num1, num2) {
-    return +num1 * +num2;
-  }
-  dividir(num1, num2) {
-    return +num1 / +num2;
-  }
-  potenciar(num, exponente) {
-    return num ** +exponente;
-  }
-  raizCuadrada(num) {
-    return Math.sqrt(num);
-  }
-  raizCubica(num) {
-    return Math.cbrt(num);
-  }
-}
+// class Calculadora {
+//   sumar(num1, num2) {
+//     return +num1 + +num2;
+//   }
+//   restar(num1, num2) {
+//     return +num1 - +num2;
+//   }
+//   multiplicar(num1, num2) {
+//     return +num1 * +num2;
+//   }
+//   dividir(num1, num2) {
+//     return +num1 / +num2;
+//   }
+//   potenciar(num, exponente) {
+//     return num ** +exponente;
+//   }
+//   raizCuadrada(num) {
+//     return Math.sqrt(num);
+//   }
+//   raizCubica(num) {
+//     return Math.cbrt(num);
+//   }
+// }
 
-const calculadora = new Calculadora();
-let operacion = prompt(`
-  que operacion deseas realizar?
-  1: suma, 2: resta, 3: multiplicacion, 4: division, 5: potenciacion: 6: raiz cuadrada, 7: raiz cubica`);
+// const calculadora = new Calculadora();
+// let operacion = prompt(`
+//   que operacion deseas realizar?
+//   1: suma, 2: resta, 3: multiplicacion, 4: division, 5: potenciacion: 6: raiz cuadrada, 7: raiz cubica`);
 
-if (operacion == 1) {
-  let numero1 = prompt("ingresa tu primer numero para sumar");
-  let numero2 = prompt("ingresa tu segundo numero para sumar");
-  resultado = calculadora.sumar(numero1, numero2);
-  alert(`la suma es ${resultado}`);
-}
-if (operacion == 2) {
-  let numero1 = prompt("ingresa tu primer numero para restar");
-  let numero2 = prompt("ingresa tu segundo numero para restar");
-  resultado = calculadora.restar(numero1, numero2);
-  alert(`la resta es ${resultado}`);
-}
-if (operacion == 3) {
-  let numero1 = prompt("ingresa tu primer numero para multiplicar");
-  let numero2 = prompt("ingresa tu segundo numero para multiplicar");
-  resultado = calculadora.multiplicar(numero1, numero2);
-  alert(`la multiplicacion es ${resultado}`);
-}
-if (operacion == 4) {
-  let numero1 = prompt("ingresa tu primer numero para dividir");
-  let numero2 = prompt("ingresa tu segundo numero para dividir");
-  resultado = calculadora.dividir(numero1, numero2);
-  alert(`la division es ${resultado}`);
-}
-if (operacion == 5) {
-  let numero1 = prompt("ingresa el numero para potenciar");
-  let exponente = prompt("ingresa el exponente");
-  resultado = calculadora.potenciar(numero1, exponente);
-  alert(`la potenciacion es ${resultado}`);
-}
-if (operacion == 6) {
-  let numero1 = prompt("ingresa el numero para obtener su raiz cuadrada");
-  resultado = calculadora.raizCuadrada(numero1);
-  alert(`la la raiz cuadrada es7
-  es ${resultado}`);
-}
-if (operacion == 7) {
-  let numero1 = prompt("ingresa el numero para obtener su raiz cubica");
-  resultado = calculadora.raizCubica(numero1);
-  alert(`la raiz cubica es ${resultado}`);
-} else {
-  alert("no se encuantra la operacion deseada");
-}
+// if (operacion == 1) {
+//   let numero1 = prompt("ingresa tu primer numero para sumar");
+//   let numero2 = prompt("ingresa tu segundo numero para sumar");
+//   resultado = calculadora.sumar(numero1, numero2);
+//   alert(`la suma es ${resultado}`);
+// }
+// if (operacion == 2) {
+//   let numero1 = prompt("ingresa tu primer numero para restar");
+//   let numero2 = prompt("ingresa tu segundo numero para restar");
+//   resultado = calculadora.restar(numero1, numero2);
+//   alert(`la resta es ${resultado}`);
+// }
+// if (operacion == 3) {
+//   let numero1 = prompt("ingresa tu primer numero para multiplicar");
+//   let numero2 = prompt("ingresa tu segundo numero para multiplicar");
+//   resultado = calculadora.multiplicar(numero1, numero2);
+//   alert(`la multiplicacion es ${resultado}`);
+// }
+// if (operacion == 4) {
+//   let numero1 = prompt("ingresa tu primer numero para dividir");
+//   let numero2 = prompt("ingresa tu segundo numero para dividir");
+//   resultado = calculadora.dividir(numero1, numero2);
+//   alert(`la division es ${resultado}`);
+// }
+// if (operacion == 5) {
+//   let numero1 = prompt("ingresa el numero para potenciar");
+//   let exponente = prompt("ingresa el exponente");
+//   resultado = calculadora.potenciar(numero1, exponente);
+//   alert(`la potenciacion es ${resultado}`);
+// }
+// if (operacion == 6) {
+//   let numero1 = prompt("ingresa el numero para obtener su raiz cuadrada");
+//   resultado = calculadora.raizCuadrada(numero1);
+//   alert(`la la raiz cuadrada es7
+//   es ${resultado}`);
+// }
+// if (operacion == 7) {
+//   let numero1 = prompt("ingresa el numero para obtener su raiz cubica");
+//   resultado = calculadora.raizCubica(numero1);
+//   alert(`la raiz cubica es ${resultado}`);
+// } else {
+//   alert("no se encuantra la operacion deseada");
+// }
+
+//////////////////////////////////////
+//EJERCICIO 2 INSCRIPCION DE MATERIAS
+
+let materias = {
+  fisica: ["gama", "carlos", "belen", "arian", "sebas"],
+  programacion: ["pipe", "nelson", "belen", "arian", "jesus", "sebas"],
+  logica: ["camilo", "sebas", "belen", "arian", "jesus"],
+  quimica: ["maxi", "kelvin", "belen", "arian"],
+};
+
+const inscribir = (alumno, materia) => {
+  personas = materias[materia];
+  if (personas.length >= 21) {
+    document.write(
+      `lo siento ${alumno}, las clases de ${materia} ya estan llenas`
+    );
+  } else {
+    personas.push(alumno);
+    if (materia == "fisica") {
+      materias = {
+        fisica: personas,
+        programacion: materias["programacion"],
+        logica: materias["logica"],
+        quimica: materias["quimica"],
+      };
+    } else if (materia == "logica") {
+      materias = {
+        fisica: materias["fisica"],
+        programacion: personas,
+        logica: materias["logica"],
+        quimica: materias["quimica"],
+      };
+    } else if (materia == "logica") {
+      materias = {
+        fisica: materias["fisica"],
+        programacion: materias["programacion"],
+        logica: personas,
+        quimica: materias["quimica"],
+      };
+    } else if (materia == "quimica") {
+      materias = {
+        fisica: materias["fisica"],
+        programacion: materias["programacion"],
+        logica: materias["logica"],
+        quimica: personas,
+      };
+    }
+    document.write(
+      `felicidades ${alumno} te has inscrito correctamente a las clases de ${materia}'<br>'`
+    );
+  }
+};
+document.write(materias["fisica"] + "<br>");
+inscribir("jesus", "fisica");
+inscribir("maria", "fisica");
+inscribir("lautaro", "fisica");
+inscribir("james", "fisica");
+inscribir("kelvin", "fisica");
+inscribir("doris", "fisica");
+inscribir("bruno", "fisica");
+inscribir("matias", "fisica");
+inscribir("tomas", "fisica");
+inscribir("enzo", "fisica");
+inscribir("ana", "fisica");
+inscribir("agus", "fisica");
+inscribir("nacho", "fisica");
+inscribir("manuel", "fisica");
+inscribir("mauricio", "fisica");
+inscribir("jhan", "fisica");
+inscribir("mime", "fisica");
+
+document.write(` ${materias["fisica"]}`);
